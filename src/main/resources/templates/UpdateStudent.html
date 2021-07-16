@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Product Management Application</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<br> <br>
+		<h2>Update Student</h2>
+		<br>
+		<form action="#" th:action="@{/student/save}" th:object="${student}" method="POST">
+			<input type="hidden" th:field=*{id}> 
+			<input type="text" th:field=*{name} placeholder="Enter name" class="form-control mb-4 col-4">
+			<input type="text" th:field=*{course} placeholder="Enter course" class="form-control mb-4 col-4"> 
+			<input type="number" th:field=*{note} placeholder="Enter note " class="form-control mb-4 col-4">
+			
+			<button type="submit" class="btn btn-info col-2">Update</button>
+		</form>
+	</div>
+
+</body>
+</html>

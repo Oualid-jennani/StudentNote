@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Product Management Application</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+h1,th,td {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+		<div class="container">
+			<br><br>
+			<br><h1>Student List</h1>
+			<br><a th:href="@{/student/add}" class="btn btn-primary btn-sm mb-3">Add Student</a><br>
+				
+			<table class="table table-bordered table-hover table-reponsive-md">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Course</th>
+						<th>Note</th>
+
+						<th>Action</th>
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr th:each="s : ${ListStudents}">
+						<td th:text=${s.id}></td>
+						<td th:text="${s.name}"></td>
+						<td th:text="${s.course}"></td>
+						<td th:text= "${s.note}"></td>
+
+						<td>
+							<a th:href="@{/student/update/{id}(id=${s.id})}" class="btn btn-success">Update</a>
+							<a th:href="@{/student/delete/{id}(id=${s.id})}" class="btn btn-danger">Delete</a>
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+</body>
+</html>
